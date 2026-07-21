@@ -7,17 +7,32 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
         <link rel="stylesheet" href="{% static 'styles.css/blog.css' %}">
     </head>
-    <body>
+    <body class="{{ request.user.profile.theme }}">
         <header class="page-header">
-            <div class="container">
-                {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu">
-        {% include './icons/file-earmark-plus.svg' %}
-    </a>
-{% endif %}
-                <h1><a href="/">Django Girls Blog</a></h1>
-            </div>
-        </header>
+        <div class="container">
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile_edit' %}" class="top-menu">
+                    {% include './icons/person-circle.svg' %}
+                </a>
+
+                <a href="{% url 'post_new' %}" class="top-menu">
+                    {% include './icons/file-earmark-plus.svg' %}
+                </a>
+
+                <span class="user-info">
+                    Olá,
+                    {% if request.user.profile.display_name %}
+                        {{ request.user.profile.display_name }}
+                    {% else %}
+                        {{ request.user.username }}
+                    {% endif %}
+                </span>
+            {% endif %}
+
+            <h1><a href="/">Django Girls Blog</a></h1>
+
+        </div>
         <main class="content container">
             <div class="row">
                 <div class="col">

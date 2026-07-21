@@ -4,8 +4,9 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
-
-
+from .forms import ProfileForm
+from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 # Create your views here.
 def post_list(request):
@@ -43,3 +44,27 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+@login_required
+def profile_edit(request):
+
+    profile, created = Profile.objects.get_or_create(
+    user=request.user
+)
+
+    if request.method == "POST":
+
+        form = ProfileForm(request.POST, instance=profile)
+
+        if form.is_valid():
+            form.save()
+            return redirect('post_list')
+
+    else:
+
+        form = ProfileForm(instance=profile)
+
+    return render(
+        request,
+        'blog/profile_edit.html',
+        {'form': form}
+    )

@@ -1,71 +1,220 @@
-.page-header {
-    background-color: #C25100;
-    margin-top: 0;
-    margin-bottom: 40px;
-    padding: 20px 20px 20px 40px;
+/* =========================
+   FONTES E GERAL
+========================= */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffffff;
+    color: #333;
+    margin: 0;
 }
 
-.page-header h1,
-.page-header h1 a,
-.page-header h1 a:visited,
-.page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
+h1 {
+    font-family: "Lobster", cursive;
 }
 
-h1,
 h2,
 h3,
 h4 {
-    font-family: 'Lobster', cursive;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 700;
 }
 
-.date {
-    color: #828282;
+/* =========================
+   CABEÇALHO
+========================= */
+
+.page-header {
+    background: #FCA205;
+    margin: 0 0 50px 0;
+    padding: 20px 40px 35px 40px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
 }
 
-.save {
-    float: right;
+.user-info{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size:16px;
+    font-weight:600;
+    color:#fff;
+    display:block;
+    margin-bottom:18px;
 }
 
-.post-form textarea,
-.post-form input {
-    width: 100%;
+.page-header h1 {
+    margin: 0;
 }
+
+.page-header h1 a,
+.page-header h1 a:visited {
+    color: white;
+    text-decoration: none;
+    font-size: 58px;
+}
+
+/* ÍCONES */
 
 .top-menu,
-.top-menu:hover,
 .top-menu:visited {
-    color: #ffffff;
+    color: white;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 34px;       /* aumentado */
+    margin-left: 22px;
+    transition: .2s;
+}
+
+.top-menu svg{
+    width:34px;
+    height:34px;
+}
+
+.top-menu:hover {
+    color: rgba(255,255,255,.75);
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.content {
+    margin-top: 15px;      /* espaço entre cabeçalho e posts */
 }
 
 .post {
-    margin-bottom: 70px;
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.post h2 {
+    margin-top: 0;
 }
 
 .post h2 a,
 .post h2 a:visited {
-    color: #000000;
+    color: #222;
+    text-decoration: none;
 }
 
-.post > .date,
-.post > .actions {
+.post .date {
     float: right;
+    color: #8a8a8a;
+    font-size: 15px;
 }
 
-.btn-secondary,
-.btn-secondary:visited {
-    color: #C25100;
-    background: none;
-    border-color: #C25100;
-    margin-left: 15px;
+.post p {
+    line-height: 1.7;
 }
 
-.btn-secondary:hover {
-    color: #FFFFFF;
-    background-color: #C25100;
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.post-form textarea,
+.post-form input,
+.post-form select {
+
+    width: 100%;
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;       /* mais arredondado */
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.post-form textarea:focus,
+.post-form input:focus,
+.post-form select:focus{
+
+    outline: none;
+    border-color: #888;
+}
+
+.save{
+    float:right;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn-secondary{
+
+    border-width:2px;
+    border-radius:10px;
+    padding:10px 22px;
+    font-weight:600;
+    background:white;          /* evita ficar invisível */
+    transition:.2s;
+}
+
+/* =========================
+   TEMA LARANJA
+========================= */
+
+.orange .page-header{
+    background:#FCA205;
+}
+
+.orange .btn-secondary{
+    background:white;
+    color:#FCA205;
+    border-color:#FCA205;
+}
+
+.orange .btn-secondary:hover{
+    background:#FCA205;
+    color:white;
+}
+
+.orange .post h2 a:hover{
+    color:#FCA205;
+}
+
+/* =========================
+   TEMA ROSA
+========================= */
+
+.pink .page-header{
+    background:#f062a6;
+}
+
+.pink .btn-secondary{
+    background:white;
+    color:#f062a6;
+    border-color:#f062a6;
+}
+
+.pink .btn-secondary:hover{
+    background:#f062a6;
+    color:white;
+}
+
+.pink .post h2 a:hover{
+    color:#f062a6;
+}
+
+/* =========================
+   TEMA AZUL
+========================= */
+
+.blue .page-header{
+    background:#4c8dff;
+}
+
+.blue .btn-secondary{
+    background:white;
+    color:#4c8dff;
+    border-color:#4c8dff;
+}
+
+.blue .btn-secondary:hover{
+    background:#4c8dff;
+    color:white;
+}
+
+.blue .post h2 a:hover{
+    color:#4c8dff;
 }

@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 #significa que o Post é um modelo de Django, então o Django sabe que ele deve ser salvo no banco de dados.
 class Post(models.Model):
@@ -16,3 +17,25 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Profile(models.Model):
+    THEMES = [
+        ('orange', 'Laranja'),
+        ('pink', 'Rosa'),
+        ('blue', 'Azul'),
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    theme = models.CharField(
+        max_length=20,
+        choices=THEMES,
+        default='orange'
+    )
+
+    display_name = models.CharField(
+        max_length=50,
+        blank=True
+     )
+
+    def __str__(self):
+        return self.user.username
